@@ -35,9 +35,15 @@ android {
 
 dependencies {
 
+    implementation(project(":data:network"))
+    implementation(project(":data:local"))
+
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(libs.koin)
+    implementation(libs.androidx.paging)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

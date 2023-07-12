@@ -36,10 +36,12 @@ android {
 dependencies {
 
     implementation(libs.androidx.preference.datastore)
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
+    api(libs.androidx.room.runtime)
+    api(libs.androidx.room.ktx)
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
+
+    implementation(libs.koin.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
 }
