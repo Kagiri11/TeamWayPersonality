@@ -11,11 +11,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.maina.personalityapp.MainViewModel
 import com.maina.personalityapp.component.NavigationRow
 import com.maina.personalityapp.component.QuestionCardComponent
+import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun QuestionScreen() {
+fun QuestionScreen(mainViewModel: MainViewModel = getViewModel()) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
