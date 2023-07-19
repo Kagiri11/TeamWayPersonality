@@ -5,8 +5,10 @@ import com.maina.domain.models.Trait
 
 interface AppRepository {
 
-    suspend fun getQuestion(questionNumber: Int): Result<Question>
+    suspend fun getQuestions(): Result<List<Question>>
 
-    suspend fun submitAnswer(answer: String): Result<Trait>
+    suspend fun submitAnswer(questionId: Int,answer: String): Result<Unit>
+
+    suspend fun completeTest(): Result<Trait>
 
 }

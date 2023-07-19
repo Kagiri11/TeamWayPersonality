@@ -6,12 +6,15 @@ import com.maina.domain.repository.AppRepository
 import com.maina.network.api.PersonalityRemoteSource
 
 class AppRepositoryImpl(private val remoteSource: PersonalityRemoteSource): AppRepository {
-
-    override suspend fun getQuestion(questionNumber: Int): Result<Question> {
+    override suspend fun getQuestions(): Result<List<Question>> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun submitAnswer(answer: String): Result<Trait> {
+    override suspend fun submitAnswer(questionId: Int, answer: String): Result<Unit> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun completeTest(): Result<Trait> {
         TODO("Not yet implemented")
     }
 }
