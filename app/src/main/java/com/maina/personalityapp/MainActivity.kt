@@ -10,8 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.maina.personalityapp.ui.theme.InterviewTemplateTheme
+import com.maina.personalityapp.screens.QuestionScreen
+import com.maina.personalityapp.ui.theme.PersonalityAppTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -21,13 +21,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         mainViewModel.fetchQuestions()
         setContent {
-            InterviewTemplateTheme {
+            PersonalityAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    QuestionScreen()
                 }
             }
         }
@@ -45,7 +45,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    InterviewTemplateTheme {
+    PersonalityAppTheme {
         Greeting("Android")
     }
 }
