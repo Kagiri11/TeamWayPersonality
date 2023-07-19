@@ -1,4 +1,4 @@
-package com.maina.interviewtemplate
+package com.maina.personalityapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,11 +10,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.maina.interviewtemplate.ui.theme.InterviewTemplateTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.maina.personalityapp.ui.theme.InterviewTemplateTheme
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
+
+    private val mainViewModel: MainViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mainViewModel.fetchQuestions()
         setContent {
             InterviewTemplateTheme {
                 // A surface container using the 'background' color from the theme

@@ -1,4 +1,4 @@
-package com.maina.interviewtemplate
+package com.maina.personalityapp
 
 import org.junit.Test
 

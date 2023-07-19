@@ -1,4 +1,4 @@
-package com.maina.interviewtemplate.ui.theme
+package com.maina.personalityapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

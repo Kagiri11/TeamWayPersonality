@@ -1,4 +1,4 @@
-package com.maina.interviewtemplate
+package com.maina.personalityapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

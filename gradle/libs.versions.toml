@@ -5,7 +5,8 @@ core-ktx = "1.9.0"
 chucker = "3.5.2"
 coil = "2.1.0"
 googleGson = "2.9.0"
-koin = "3.1.5"
+koin = "3.4.2"
+koin-androidx-compose = "3.4.5"
 kotlin = "1.6.10"
 retrofit = "2.9.0"
 room = "2.4.2"
@@ -40,6 +41,8 @@ chucker = { group = "com.github.chuckerteam.chucker", name = "library", version.
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 google-truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 koin = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin-androidx-compose" }
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-test = { group = "io.insert-koin", name = "koin-test", version.ref = "koin" }
 okhttp = { group = "com.squareup.okhttp3" , name = "okhttp" , version.ref = "okHttp" }

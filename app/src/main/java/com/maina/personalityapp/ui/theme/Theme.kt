@@ -1,4 +1,4 @@
-package com.maina.interviewtemplate.ui.theme
+package com.maina.personalityapp.ui.theme
 
 import android.app.Activity
 import android.os.Build
