@@ -1,5 +1,6 @@
 package com.maina.network.di
 
+import com.maina.network.api.PersonalityRemoteSource
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -18,3 +19,5 @@ fun provideRetrofit() : Retrofit {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }
+
+fun provideRemoteSource(retrofit: Retrofit): PersonalityRemoteSource = retrofit.create(PersonalityRemoteSource::class.java)
