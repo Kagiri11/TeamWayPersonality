@@ -36,7 +36,7 @@ android {
 dependencies {
 
     implementation(project(":data:network"))
-    implementation(project(":data:local"))
+    implementation(project(":domain"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
