@@ -13,7 +13,7 @@ fun provideRetrofit() : Retrofit {
         .addInterceptor(loggingInterceptor)
         .build()
     return Retrofit.Builder()
-        .baseUrl("https://api.unsplash.com/")
+        .baseUrl("http://demo7764327.mockable.io/personalize/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
