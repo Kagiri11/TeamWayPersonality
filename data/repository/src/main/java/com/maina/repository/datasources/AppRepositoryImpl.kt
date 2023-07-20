@@ -1,5 +1,6 @@
 package com.maina.repository.datasources
 
+import android.util.Log
 import com.maina.domain.models.Question
 import com.maina.domain.models.Trait
 import com.maina.domain.repository.AppRepository

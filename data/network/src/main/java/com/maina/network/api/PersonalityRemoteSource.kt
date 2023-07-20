@@ -10,7 +10,7 @@ interface PersonalityRemoteSource {
     @GET("questions")
     suspend fun fetchQuestions(): List<QuestionDataModel>
 
-    @POST
+    @POST("answer")
     suspend fun submitAnswer(questionId: Int, answer: String)
 
     @GET("traits")

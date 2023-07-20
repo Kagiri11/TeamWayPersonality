@@ -19,9 +19,12 @@ class MainViewModel(private val appRepository: AppRepository) : ViewModel() {
     val questionnaireProgress: LiveData<Float> get() = _questionnaireProgress
 
     private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> get()= _isLoading
+    val isLoading: LiveData<Boolean> get() = _isLoading
 
     private val questions = mutableListOf<Question>()
+
+    private val _trait = MutableLiveData<String>()
+    val trait: LiveData<String> get() = _trait
 
     var currentQuestionIndex = 0
 
@@ -30,50 +33,68 @@ class MainViewModel(private val appRepository: AppRepository) : ViewModel() {
         fetchQuestions()
     }
 
-    fun fetchQuestions() {
+    private fun fetchQuestions() {
         viewModelScope.launch {
-            when(val result = appRepository.getQuestions()){
+            when (val result = appRepository.getQuestions()) {
                 is Result.Success -> {
                     questions.addAll(result.data)
                     _currentQuestion.value = questions.first()
                     calculateProgress()
                 }
+
                 is Result.Error -> {}
             }
-
-            Log.d("PersonalityApp", "Questions here $questions")
         }
     }
 
-    private fun calculateProgress(){
-        when{
+    private fun calculateProgress() {
+        when {
             questions.size == 1 -> {
-                Log.d("PersonalityApp", "Progress in vm in one ${_questionnaireProgress.value}")
                 _questionnaireProgress.value = 1F
             }
-            questions.size >1 -> {
-                _questionnaireProgress.value = ((currentQuestionIndex).toDouble()/questions.size).toFloat()
-                Log.d("PersonalityApp", "Progress in vm in greater ${_questionnaireProgress.value}")
+
+            questions.size > 1 -> {
+                _questionnaireProgress.value =
+                    ((currentQuestionIndex).toDouble() / questions.size).toFloat()
             }
         }
     }
 
-    fun moveToNextQuestion(){
+    fun moveToNextQuestion() {
         currentQuestionIndex += 1
         _currentQuestion.value = questions[currentQuestionIndex]
         calculateProgress()
     }
 
 
-    fun moveToPreviousQuestion(){
+    fun moveToPreviousQuestion() {
         currentQuestionIndex -= 1
         _currentQuestion.value = questions[currentQuestionIndex]
         calculateProgress()
     }
 
-    fun answerQuestion(questionId: Int,answer: String) = viewModelScope.launch {
-        Log.d("PersonalityApp","Answering with .. $answer")
-        appRepository.submitAnswer(questionId, answer)
+    fun answerQuestion(questionId: Int, answer: String) = viewModelScope.launch {
+        appRepository.submitAnswer(questionId, answer).let {
+            when (it) {
+                is Result.Success -> {
+                }
+
+                is Result.Error -> {
+                }
+            }
+        }
+    }
+
+    fun completeTest() = viewModelScope.launch {
+        when (val result = appRepository.completeTest()) {
+            is Result.Success -> {
+                _trait.value = result.data.name
+                _questionnaireProgress.value = 1F
+            }
+
+            is Result.Error -> {
+            }
+        }
     }
 
 }
