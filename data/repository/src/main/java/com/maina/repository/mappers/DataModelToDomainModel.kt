@@ -9,7 +9,8 @@ import com.maina.network.models.TraitDataModel
 
 fun QuestionDataModel.toDomain() = Question(
     id = id,
-    choices = choices.map { it.toDomain() }
+    choices = choices.map { it.toDomain() },
+    question= question
 )
 
 fun ChoiceDataModel.toDomain() = Choice(

@@ -14,22 +14,32 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.maina.domain.models.Question
 
 @Composable
-fun QuestionCardComponent() {
-    Card(modifier = Modifier
-        .fillMaxWidth(0.9f).wrapContentHeight(),
+fun QuestionCardComponent(question: Question, selectedChoice: String,onChoiceSelected: (String) -> Unit) {
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth(0.9f)
+            .wrapContentHeight(),
         shape = RoundedCornerShape(5)
-        ) {
+    ) {
         Column(modifier = Modifier.padding(horizontal = 10.dp, vertical = 10.dp)) {
-            Text(text = "Question One")
+            Text(text = question.question)
             Spacer(modifier = Modifier.height(10.dp))
             Column {
-                (0 until  4).toList().forEach {
-                    ChoiceComponent()
+                question.choices.forEach {
+                    ChoiceComponent(
+                        choice = it.choice,
+                        selectedChoice = selectedChoice,
+                        onChoiceSelected = onChoiceSelected
+                    )
                 }
             }
         }
@@ -39,5 +49,5 @@ fun QuestionCardComponent() {
 @Preview
 @Composable
 fun QuestionCardComponentPreview() {
-    QuestionCardComponent()
+    QuestionCardComponent(Question(0, listOf(), ""),"", {})
 }

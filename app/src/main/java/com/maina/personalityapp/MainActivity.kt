@@ -19,7 +19,6 @@ class MainActivity : ComponentActivity() {
     private val mainViewModel: MainViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainViewModel.fetchQuestions()
         setContent {
             PersonalityAppTheme {
                 // A surface container using the 'background' color from the theme

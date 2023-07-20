@@ -1,6 +1,7 @@
 package com.maina.domain.models
 
 data class Question(
+    val id: Int,
     val choices: List<Choice>,
-    val id: String
+    val question: String,
 )

@@ -12,22 +12,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.maina.domain.models.Choice
 
 @Composable
-fun ChoiceComponent() {
+fun ChoiceComponent(choice: String, selectedChoice: String, onChoiceSelected: (String) -> Unit) {
     Row(
         modifier = Modifier.padding(all = 10.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start
     ) {
-        RadioButton(selected = true, onClick = { /*TODO*/ })
+        RadioButton(
+            selected = choice == selectedChoice,
+            onClick = { onChoiceSelected(choice) }
+        )
         Spacer(modifier = Modifier.width(10.dp))
-        Text(text = "Choice One")
+        Text(text = choice)
     }
 }
 
 @Preview
 @Composable
 fun ChoiceComponentPreview() {
-    ChoiceComponent()
+    ChoiceComponent("Choice One","",{})
 }

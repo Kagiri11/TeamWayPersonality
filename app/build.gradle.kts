@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.maina.personality"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.maina.personality"
@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
+    implementation(libs.androidx.compose.runtime.livedata)
 
     testImplementation(libs.junit)
 
