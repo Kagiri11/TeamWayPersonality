@@ -36,7 +36,7 @@ android {
 dependencies {
 
     implementation(project(":data:network"))
-    implementation(project(":data:local"))
+    implementation(project(":domain"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
@@ -45,6 +45,10 @@ dependencies {
     implementation(libs.androidx.paging)
 
     testImplementation(libs.junit)
+    testImplementation(libs.google.truth)
+    testImplementation(libs.io.mockk)
+    testImplementation(libs.coroutines.test)
+
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }

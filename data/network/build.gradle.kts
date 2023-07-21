@@ -39,8 +39,9 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.koin.core)
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
+    api(libs.retrofit)
+    api(libs.retrofit.converter.gson)
+    api(libs.retrofit.okhttp3.logging.interceptor)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

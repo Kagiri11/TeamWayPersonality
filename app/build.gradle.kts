@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.maina.interviewtemplate"
-    compileSdk = 33
+    namespace = "com.maina.personality"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.maina.interviewtemplate"
+        applicationId = "com.maina.personality"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
@@ -52,6 +52,8 @@ android {
 
 dependencies {
 
+    implementation(project(":domain"))
+    implementation(project(":data:repository"))
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
@@ -60,7 +62,12 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.androidx.compose.runtime.livedata)
+
     testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.compose.bom))
