@@ -46,6 +46,9 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.google.truth)
+    testImplementation(libs.io.mockk)
+    testImplementation(libs.coroutines.test)
+
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }
