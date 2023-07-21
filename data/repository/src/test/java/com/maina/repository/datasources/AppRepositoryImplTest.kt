@@ -38,7 +38,7 @@ class AppRepositoryImplTest {
 
         val result = appRepositoryImpl.completeTest()
 
-        assertThat((result as Result.Success).data).isEqualTo(1)
+        assertThat((result as Result.Success).data).isEqualTo(Data.trait)
     }
 
 }
